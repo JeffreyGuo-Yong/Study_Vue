@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <script type="text/javascript" src="JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>Welcome to study the Vue JS</h2>
+    <ul>
+        <li v-for="(link, index) in links" :key="index">
+            {{ index }}: {{ link.name }} --- Link: <a :href="link.url">{{ link.name }}</a>
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            links: [
+                {name: 'Hello Vue', url: '01HelloVue/01HelloVue.html'},
+                {name: 'Template Syntax', url: '01HelloVue/02TemplateSyntax.html'},
+                {name: 'ComputedProperties Watchers', url: '01HelloVue/03ComputedProperties&Watchers.html'},
+                {name: 'Class StyleBindings', url: '01HelloVue/04Class&StyleBindings.html'},
+                {name: 'Conditional Rendering', url: '01HelloVue/05ConditionalRendering.html'},
+                {name: 'List Rendering', url: '01HelloVue/06ListRendering.html'}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

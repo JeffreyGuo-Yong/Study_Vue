@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="message">
+    <p>Hello! {{ message }}</p>
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'Jeffrey'
+        }
+    })
+</script>
+
+<!--
+MVVM - model view viewModel(vm)
+ViewModel:
+1. DOM listeners
+2. Data Bindings
+-->
+</body>
+</html>

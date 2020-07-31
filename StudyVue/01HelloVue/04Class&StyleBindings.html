@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class & Style Bindings</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+    <style>
+        .class1{
+            font-size: 20px;
+            color: blueviolet;
+        }
+        .class2{
+            font-size: 25px;
+            color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p :class="classBind">The content show the class binding</p>
+    <p :style="{color: styleBind1, fontSize: styleBind2}">The content show the style binding</p>
+    <button @click="update">Update</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            classBind: 'class1',
+            styleBind1: 'green',
+            styleBind2: '20px'
+        },
+        methods: {
+            update(){
+                if (this.classBind === 'class1'){
+                    this.classBind = 'class2';
+                    this.styleBind1 = 'green';
+                    this.styleBind2 = '25px'
+                }else{
+                    this.classBind = 'class1';
+                    this.styleBind1 = 'red';
+                    this.styleBind2 = '20px'
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

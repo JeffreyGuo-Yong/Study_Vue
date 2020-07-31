@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computed Properties & Watchers</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>First Name: <input type="text" placeholder="First Name" v-model="firstname"></p>
+    <p>Last Name: <input type="text" placeholder="Last Name" v-model="lastname"></p>
+
+    <p>Your Name(F + L): <input type="text" v-model="fullname1"></p>
+    <p>Your Name(L + F): <input type="text" v-model="fullname2"></p>
+
+    <p>Your Name(F + L): <input type="text" v-model="fullname3"></p>
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            firstname: '',
+            lastname: ''
+        },
+        computed: {
+            fullname1(){
+                return this.firstname + ' ' + this.lastname
+            },
+            fullname2(){
+                return this.lastname + ' ' + this.firstname
+            },
+            fullname3: {
+                get(){
+                    return this.firstname + ' ' + this.lastname
+                },
+                set(value){
+                    var name = value.split(' ')
+                    this.firstname = name[0]
+                    this.lastname = name[1]
+                }
+            }
+        },
+        watch: {
+            firstname: function(value){
+                this.fullname3 = value + ' ' + this.lastname
+            },
+            lastname: function (value) {
+                this.fullname3 = this.firstname + ' ' + value
+            }
+        }
+    })
+
+    // vm.$watch('lastname', function(value){
+    //     this.fullname3 = this.firstname + ' ' + value
+    // })
+</script>
+</body>
+</html>

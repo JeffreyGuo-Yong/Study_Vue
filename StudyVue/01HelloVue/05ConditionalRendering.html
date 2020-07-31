@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional Rendering</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="value" style="margin-right: 20px">
+        <h3>A Car!</h3>
+        <img src="../Image/car.jpg" style="width: 200px" />
+    </div>
+
+    <div v-else style="margin-right: 20px">
+        <h3>A Bus!</h3>
+        <img src="../Image/bus.jpg" style="width: 200px" />
+    </div>
+
+    <div v-show="value">
+        <h3>A Dog!</h3>
+        <img src="../Image/dog.jpg" style="width: 200px" />
+    </div>
+
+    <div v-show="!value">
+        <h3>A Cat!</h3>
+        <img src="../Image/cat.jpg" style="width: 200px" />
+    </div>
+
+    <button @click="value = !value">Change! Change!</button>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            value: true
+        }
+    })
+</script>
+</body>
+</html>

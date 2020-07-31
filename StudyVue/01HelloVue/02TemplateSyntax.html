@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Syntax</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- use {{ various name }} to show the various-->
+    <p>{{ message1 }}</p>
+    <p>{{ message2 }}</p>
+    <p v-html="message2"></p>
+
+    <!-- 强制绑定 mandatory binding -->
+    <!-- the src= url -->
+    <img src="url" style="width: 200px">
+    <!-- now the src= ../Image/lia‘s%20cat.jpeg-->
+    <img v-bind:src="url" style="width: 200px">
+    <img :src="url" style="width: 200px">
+
+    <!-- 绑定监听 binding listener -->
+    <button v-on:click="button1">Button1</button>
+    <button @click="button2(message2)">Button2</button>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            message1: 'Hello! Vue.JS~',
+            message2: '<a href="https://vuejs.org/">Vue Website',
+            url: '../Image/cat.jpg'
+        },
+        methods: {
+            button1(){
+                alert('Hello! VueJS!!!!')
+            },
+            button2(content){
+                alert(content)
+            }
+        }
+    })
+</script>
+</body>
+</html>
