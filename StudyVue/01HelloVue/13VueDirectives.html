@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Directives</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+    <style type="text/css">
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h3>see the source code</h3>
+<div id="app">
+    <!-- use 'ref' binding the HTML label -->
+    <p ref="message">3...2...1... Boom!</p>
+    <button @click="showMessage">Click show the content of 'p' label</button>
+
+    <p v-cloak>{{ msg }}</p>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'HaHa, VueJS'
+        },
+        methods: {
+            showMessage(){
+                alert(this.$refs.message.textContent);
+            }
+        }
+    })
+</script>
+</body>
+</html>

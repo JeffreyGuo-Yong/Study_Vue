@@ -10,9 +10,19 @@
     <p>Use ul/li show the array's value</p>
     <ul>
         <li v-for="(person, index) in people" :key="index">
-            {{ index }} --- Name: {{ person.name }}
+            {{ index }} --- Name: <input type="text" :value="person.name">
+            <button @click="updatePerson(index, {name: 'Boom'})">update</button>
+            <button @click="deletePerson(index)">delete</button>
         </li>
+        <input v-model="newPerson" type="text" placeholder="enter a name" />
+        <button @click="addPerson(newPerson)">Add</button>
     </ul>
+    <p>Use ul/li show the object</p>
+    <ol>
+        <li v-for="(key, value) in person">
+            {{ key }} --- {{ value }}
+        </li>
+    </ol>
 </div>
 
 <script type="text/javascript">
@@ -25,7 +35,22 @@
                 {name: 'Frank'},
                 {name: 'Lia'},
                 {name: 'Kelly'}
-            ]
+            ],
+            showValue: true,
+            newPerson: '',
+            person: {name: 'Jeffrey', age: 28, school: 'RMIT'}
+        },
+        methods: {
+            updatePerson(index, newName){
+                this.people.splice(index, 1, newName);
+            },
+            deletePerson(index){
+                this.people.splice(index, 1);
+            },
+            addPerson(name){
+                var newPerson = {name: name};
+                this.people.splice(this.people.length, 0, newPerson);
+            }
         }
     })
 </script>

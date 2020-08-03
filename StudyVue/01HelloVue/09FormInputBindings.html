@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input Bindings</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- use v-model to get the form items' values -->
+    <form>
+        <p>Username: <input type="text" v-model="username"></p>
+        <p>Password: <input type="password" v-model="password"></p>
+        <p>
+            Gender:
+            <label for="female">Female</label><input type="radio" id="female" value="female" name="gender" v-model="gender">
+            <label for="male">Male</label><input type="radio" id="male" value="male" name="gender" v-model="gender">
+        </p>
+        <p>
+            Hobby:
+            <label for="basketball">Basketball</label><input type="checkbox" id="basketball" value="basketball" name="hobby" v-model="hobby">
+            <label for="swimming">Swimming</label><input type="checkbox" id="swimming" value="swimming" name="hobby" v-model="hobby">
+            <label for="tennis">Tennis</label><input type="checkbox" id="tennis" value="tennis" name="hobby" v-model="hobby">
+            <label for="running">Running</label><input type="checkbox" id="running" value="running" name="hobby" v-model="hobby">
+            <label for="eat">Eat</label><input type="checkbox" id="eat" value="eat" name="hobby" v-model="hobby">
+        </p>
+        <p>
+            State:
+            <select name="state" v-model="state">
+                <option selected="selected">Please select state</option>
+                <option value="ACT">Australian Capital Territory</option>
+                <option value="NSW">New South Wales</option>
+                <option value="NT ">Northern Territory</option>
+                <option value="QLD">Queensland</option>
+                <option value="SA ">South Australia</option>
+                <option value="TAS">Tasmania</option>
+                <option value="VIC">Victoria</option>
+                <option value="WA ">Western Australia</option>
+            </select>
+        </p>
+        <p>
+            Introduction: <textarea rows="5" v-model="introduction"></textarea>
+        </p>
+        <p>
+            <button type="submit">Register</button>
+        </p>
+    </form>
+
+    <div style="margin-top: 20px">
+        <h3>Get form value use Vue JS</h3>
+        <p>Username: {{ username }}</p>
+        <p>Password: {{ password }}</p>
+        <p>Gender: {{ gender }}</p>
+        <p>Hobby: {{ hobby }}</p>
+        <p>State: {{ state }}</p>
+        <p>Introduction: {{ introduction }}</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            // init the variables
+            username: '',
+            password: '',
+            gender: 'male',
+            hobby: [],
+            state: '',
+            introduction: ''
+        }
+    })
+</script>
+</body>
+</html>

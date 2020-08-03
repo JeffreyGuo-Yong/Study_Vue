@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customize Filter</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+    <!-- search momentJS in google -->
+    <script type="text/javascript" src="../JS/moment.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>Show the date and time</h3>
+    <p>Original Time: {{ date }}</p>
+    <p>Format Time: {{ date | dateFormat }}</p>
+    <p>Only year,month,day: {{ date | dateFormat('DD-MM-YYYY') }}</p>
+    <p>Only hour,minute,second: {{ date | dateFormat('HH:mm:ss') }}</p>
+</div>
+
+<script type="text/javascript">
+    // customize filter to format the date and time
+    Vue.filter('dateFormat', function (date, format) {
+        return moment().format(format || 'DD-MM-YYYY  HH:mm:ss');
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            date: new Date()
+        }
+    })
+</script>
+</body>
+</html>

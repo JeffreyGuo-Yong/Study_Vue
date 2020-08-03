@@ -12,6 +12,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -20,13 +21,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Vue" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Image" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/JS" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Image" />
       <recent name="$PROJECT_DIR$/JS" />
+      <recent name="$PROJECT_DIR$/Image" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -51,7 +52,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596007620574</updated>
-      <workItem from="1596007621850" duration="15209000" />
+      <workItem from="1596007621850" duration="16279000" />
+      <workItem from="1596359526484" duration="29032000" />
     </task>
     <servers />
   </component>

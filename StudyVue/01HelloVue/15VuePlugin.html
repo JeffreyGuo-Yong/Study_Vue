@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Plugin</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+    <!-- import plugin -->
+    <script type="text/javascript" src="../JS/vue_myPlugin.js"></script>
+</head>
+<body>
+<h3>see the source code</h3>
+<!-- use plugin implement the change text to upper case function -->
+<div id="example1">
+    <p>Original message: {{ msg1 }}</p>
+    <!-- use the directive of the plugin -->
+    <p v-my-directive="msg1"></p>
+</div>
+<div id="example2">
+    <p>Original message: {{ msg2 }}</p>
+    <!-- use the directive of the plugin -->
+    <p v-my-directive="msg2"></p>
+</div>
+
+<script type="text/javascript">
+    // declare use plugin
+    Vue.use(MyPlugin); // the plugin will run the install method
+    Vue.myGlobalMethod(); // use the plugin global method
+
+    new Vue({
+        el: "#example1",
+        data: {
+            msg1: 'I want to play Tennis!'
+        }
+    });
+    const vm = new Vue({
+        el: '#example2',
+        data: {
+            msg2: 'I can play PS4 at home...'
+        }
+    })
+
+    // use the vue instance method in the plugin
+    vm.$myMethod();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Lifecycle</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>The messages are shown in the developer tool console of browser</p>
+    <button @click="destroyVM">destroy vm</button>
+    <p v-show="isShow">Vue JS!!!!!</p>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            isShow: true
+        },
+
+        // init stage
+        beforeCreate(){
+            console.log('into the beforeCreate stage');
+        },
+        created(){
+            console.log('into the created stage');
+        },
+
+        // update stage
+        beforeMount(){
+            console.log('into the beforeMount stage');
+        },
+        mounted(){
+            console.log('into the mounted stage');
+            this.intervalID = setInterval(() => {
+                this.isShow = !this.isShow;
+            }, 1000)
+        },
+
+        // destroy stage
+        beforeDestroy(){
+            console.log('into the beforeDestroy stage');
+            clearInterval(this.intervalID);
+        },
+        destroyed(){
+            console.log('into the destroyed stage');
+        },
+
+        methods: {
+            destroyVM(){
+                this.$destroy();
+            }
+        }
+    })
+</script>
+</body>
+</html>

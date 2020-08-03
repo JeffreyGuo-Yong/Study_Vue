@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handling</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="test1">Test1</button>
+    <button @click="test2('message from test2')">Test2</button>
+    <button @click="test3">Test3</button>
+    <button @click="test4('5', $event)">Test4</button>
+
+    <div style="width: 200px; height: 200px; background: blueviolet; margin-top: 20px;" @click="test5">
+        <div style="width: 100px; height: 100px; background: aqua;" @click.stop="test6"></div>
+    </div>
+
+    <a href="http://www.google.com" @click.prevent="test7">Go to Google</a><br />
+
+    <p>tap enter will show the content of input label</p>
+    <input type="text" @keyup.enter="test8" />
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        methods: {
+            test1(){
+                alert("the message from test1");
+            },
+            test2(message){
+                alert(message);
+            },
+            test3(event){
+                alert("the value of button: " + event.target.innerHTML);
+            },
+            test4(number, event){
+                alert("value of parameter: " + number + ", the value of button: " + event.target.innerHTML);
+            },
+            test5(){
+                alert('outside');
+            },
+            test6(){
+                alert('inside');
+            },
+            test7(){
+                alert('stop link to Google');
+            },
+            test8(event){
+                alert(event.target.value);
+            }
+        }
+    })
+</script>
+</body>
+</html>

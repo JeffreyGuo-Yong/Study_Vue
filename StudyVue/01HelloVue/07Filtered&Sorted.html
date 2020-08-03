@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtered & Sorted</title>
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    Search: <input type="text" v-model="search">
+    <ul>
+        <li v-for="(person, index) in findPerson" :key="index">
+            {{ index }} --- Name: {{ person.name }}, Age: {{ person.age }}
+        </li>
+    </ul>
+    <button @click="sort(1)">ASC by age</button>
+    <button @click="sort(2)">DESC by age</button>
+    <button @click="sort(0)">Original order</button>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            people: [
+                {name: 'Jeffrey', age: 28},
+                {name: 'Jessie', age: 18},
+                {name: 'Frank', age: 30},
+                {name: 'Lia', age: 17},
+                {name: 'Kelly', age: 16}
+            ],
+            search: '',
+            sortType: 0
+        },
+        computed: {
+            findPerson(){
+                // get the value when the method start to run
+                const {search, people, sortType} = this;
+
+                /*
+                   use a variable to get the filter result
+                   if the person.name include the search's value, it can be selected
+                 */
+                var persons = people.filter(person => person.name.indexOf(search) >= 0);
+
+                /*
+                    sort the persons
+                 */
+                if(sortType !== 0){
+                    persons.sort(function (person1, person2) {
+                        if(sortType === 1){
+                            return person1.age - person2.age;
+                        }else{
+                            return person2.age - person1.age;
+                        }
+                    })
+                }
+
+                return persons;
+            }
+        },
+        methods: {
+            sort(number){
+                this.sortType = number;
+            }
+        }
+    })
+</script>
+</body>
+</html>
